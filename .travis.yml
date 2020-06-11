@@ -1,0 +1,27 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notificarions:
+  #slack: workspace:token
+  email:
+    recipients:
+      - alejozepol@gmail.com
+      - galopez683@misena.edu.co
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 1663ddbb-8fd9-4786-aa94-4fc163e5496d
+  app: platzistore-backend-alejozepol
+  on:
+    repo: alejozepol/platzi-store-backend
